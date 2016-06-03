@@ -1,0 +1,33 @@
+* {
+  font-family: "Lucida Grande";
+}
+
+#gameContainer, #pastScores {
+  width: 600px;
+  float: left;
+}
+
+.row {
+  height: 26px;
+}
+
+.column {
+  border: 1px solid white;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+#startGame {
+  width: 120px;
+  padding: 10px;
+  margin-top: 5px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+#startGame:hover {
+  color: red;
+  cursor: pointer;
+}
