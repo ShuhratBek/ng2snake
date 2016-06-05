@@ -6,9 +6,9 @@ export const DIRECTIONS = {
     DOWN: 40
 };
 export const COLORS = {
-    GAME_OVER: '#820303',
+    GAME_OVER: '#F44336',
     FRUIT: '#E80505',
     SNAKE_HEAD: '#078F00',
     SNAKE_BODY: '#0DFF00',
-    BOARD: '#000'
+    BOARD: '#37474F'
 };

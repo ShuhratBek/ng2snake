@@ -1,10 +1,17 @@
 * {
-  font-family: "Lucida Grande";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-#gameContainer, #pastScores {
-  width: 600px;
-  float: left;
+.fill-space {
+  flex: 1 1 auto;
+}
+
+[md-fab] {
+  position: absolute;
+  right: 3%;
+  top: 34px;
+  z-index: 1;
 }
 
 .row {
@@ -12,22 +19,8 @@
 }
 
 .column {
-  border: 1px solid white;
+  border: 1px dotted #455A64;
   width: 24px;
   height: 24px;
   display: inline-block;
-}
-
-#startGame {
-  width: 120px;
-  padding: 10px;
-  margin-top: 5px;
-  text-align: center;
-  background-color: black;
-  color: white;
-}
-
-#startGame:hover {
-  color: red;
-  cursor: pointer;
 }

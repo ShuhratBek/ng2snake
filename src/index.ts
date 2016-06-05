@@ -6,13 +6,16 @@ import {bootstrap} from '@angular/platform-browser-dynamic';
 
 import './index.scss';
 
-import {Hello} from './app/hello';
+import { Game } from './app/game.component';
 
-import {enableProdMode} from '@angular/core';
-
+import { enableProdMode } from '@angular/core';
+import { HTTP_PROVIDERS } from '@angular/http';
+import '@angular2-material/core';
 declare var process: any;
 if (process.env.NODE_ENV === 'production') {
   enableProdMode();
 }
 
-bootstrap(Hello);
+bootstrap(Game, [
+  HTTP_PROVIDERS
+]);
