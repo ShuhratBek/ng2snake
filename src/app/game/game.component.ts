@@ -1,20 +1,21 @@
 import * as _ from 'lodash/index';
 import { Component } from '@angular/core';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 import { MD_ICON_DIRECTIVES, MdIconRegistry } from '@angular2-material/icon';
 import { BOARD_SIZE, DIRECTIONS } from './game.constant';
-import { Part, Fruit, ISnake } from './game.d';
-import { GameBoard }  from './game-board.component';
+import { Part, Fruit, ISnake } from './game';
+import { GameBoard }  from './game-board/game-board.component';
+import { ToolBar }  from './tool-bar/tool-bar.component';
+import { tpl } from './game.tpl';
 
 @Component({
     selector: 'game',
-    templateUrl: './app/game.html',
+    template: tpl,
     directives: [
         MD_BUTTON_DIRECTIVES,
-        MD_TOOLBAR_DIRECTIVES,
         MD_ICON_DIRECTIVES,
-        GameBoard
+        GameBoard,
+        ToolBar
     ],
     providers: [ MdIconRegistry ]
 })
@@ -30,8 +31,6 @@ export class Game {
     fruitType: Array<string>;
 
     constructor(mdIconRegistry: MdIconRegistry) {
-        mdIconRegistry.addSvgIcon('play', './icons/play.svg');
-        mdIconRegistry.addSvgIcon('stop', './icons/stop.svg');
         this.fruitType = [
             'apple',
             'avocado',
@@ -53,6 +52,10 @@ export class Game {
         _(this.fruitType).each((value: string) => {
             mdIconRegistry.addSvgIcon(value, './icons/' + value + '.svg');
         });
+
+        mdIconRegistry.addSvgIcon('snake-head', './icons/snake-head.svg');
+        mdIconRegistry.addSvgIcon('snake-body', './icons/snake-body.svg');
+        mdIconRegistry.addSvgIcon('snake-tail', './icons/snake-tail.svg');
 
         this.score = 0;
         this.setupBoard();
@@ -206,7 +209,8 @@ export class Game {
         this.update();
     }
 
-    toggle() {
+    toggle(arg: any) {
+        console.log(arg);
         if (this.isStarted) {
             this.gameOver();
         } else {

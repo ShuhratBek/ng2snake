@@ -8,8 +8,4 @@ import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
 })
 export class Fruit {
     @Input() type: string;
-
-    constructor() {
-
-    }
 }

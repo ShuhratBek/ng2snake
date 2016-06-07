@@ -1,15 +1,10 @@
+export const tpl = `
 <div class="gameContainer">
-	<md-toolbar color="primary">
-		<span>ng2Snake</span>
-		<span class="fill-space"></span>
-		<button md-fab (click)="toggle()">
-			<md-icon svgIcon="play"></md-icon>
-		</button>
-	</md-toolbar>
+	<tool-bar (toggle)="toggle($event)"></tool-bar>
 	<md-content>
 		<h4>Score: {{score}}</h4>
 		<div layout-fill layout="column" layout-align="center center">
 			<game-board [board]="board" [snake]="snake" [fruit]="fruit" [isGameOver]="isGameOver"></game-board>
 		</div>
 	</md-content>
-</div>
+</div>`;
