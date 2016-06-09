@@ -6,6 +6,6 @@ import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
     template: `<md-icon svgIcon="{{type}}"></md-icon>`,
     directives: [MD_ICON_DIRECTIVES]
 })
-export class Fruit {
+export class FruitComponent {
     @Input() type: string;
 }

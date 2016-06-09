@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { COLORS } from '../game.constant';
-import { Part, ISnake } from '../game';
-import { Fruit } from './fruit/fruit.component';
-import { Snake } from './snake/snake.component';
+import { Part, Snake, COLORS } from '../shared/';
+import { FruitComponent } from './fruit/';
+import { SnakeComponent } from './snake/';
 
 @Component({
     selector: 'game-board',
@@ -13,18 +12,22 @@ import { Snake } from './snake/snake.component';
 			     [style.background-color]="setStyling(c, r)"
 			>
 				<fruit *ngIf="setFruit(c, r)" [type]="fruit.type"></fruit>
-				<snake *ngIf="setSnake(c, r)" [part]="getSnakePart(c, r)"></snake>
+				<snake *ngIf="setSnake(c, r)"></snake>
 			</div>
 		</div>`,
+    styles: [
+        '.row { height: 26px;}',
+        '.column { border: 1px dotted #455A64; width: 24px; height: 24px; display: inline-block;}'
+    ],
     directives: [
-        Fruit,
-        Snake
+        FruitComponent,
+        SnakeComponent
     ]
 })
-export class GameBoard {
+export class GameBoardComponent {
     @Input() board: boolean[][];
     @Input() fruit: Part;
-    @Input() snake: ISnake;
+    @Input() snake: Snake;
     @Input() isGameOver: boolean;
 
     setStyling(col: number, row: number) {
@@ -42,28 +45,10 @@ export class GameBoard {
     }
 
     setFruit(col: number, row: number) {
-        if (this.fruit.x === row && this.fruit.y === col) {
-            return true;
-        }
-        return false;
+        return (this.fruit.x === row && this.fruit.y === col);
     }
 
     setSnake(col: number, row: number) {
-        if (this.snake.parts.length > 0 && this.snake.parts[0].x === row && this.snake.parts[0].y === col) {
-            return true;
-        } else if (this.board[col][row] === true) {
-            return true;
-        }
-        return false;
-    }
-
-    getSnakePart(col: number, row: number) {
-        if (this.snake.parts.length > 0 && this.snake.parts[0].x === row && this.snake.parts[0].y === col) {
-            return 'snake-head';
-        } else if (this.snake.parts.length > 0 && this.snake.parts[this.snake.parts.length - 1].x === row && this.snake.parts[this.snake.parts.length - 1].y === col) {
-            return 'snake-tail';
-        } else if (this.snake.parts.length > 0 && this.board[col][row] === true) {
-            return 'snake-body';
-        }
+        return ((this.snake.parts.length > 0 && this.snake.parts[0].x === row && this.snake.parts[0].y === col) || this.board[col][row]);
     }
 }

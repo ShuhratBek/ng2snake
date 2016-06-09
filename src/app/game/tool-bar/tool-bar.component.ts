@@ -1,30 +1,26 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { tpl } from './tool-bar.tpl.ts';
+import { TOOLBAR_TPL } from './tool-bar.tpl.ts';
 import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-import { MD_ICON_DIRECTIVES, MdIconRegistry } from '@angular2-material/icon';
+import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
 
 @Component({
     selector: 'tool-bar',
-    template: tpl,
+    template: TOOLBAR_TPL,
+    styles: [
+        '.fill-space {flex: 1 1 auto;}',
+        '[md-fab] {position: absolute; right: 3%; top: 34px; z-index: 1;}'
+    ],
     directives: [
         MD_BUTTON_DIRECTIVES,
         MD_TOOLBAR_DIRECTIVES,
         MD_ICON_DIRECTIVES
-    ],
-    providers: [ MdIconRegistry ]
+    ]
 })
-export class ToolBar {
+export class ToolBarComponent {
     @Output() toggle: EventEmitter<any> = new EventEmitter();
-    isStarted: boolean = false;
-
-    constructor(mdIconRegistry: MdIconRegistry) {
-        mdIconRegistry.addSvgIcon('play', './icons/play.svg');
-        mdIconRegistry.addSvgIcon('stop', './icons/stop.svg');
-    }
 
     fireToggle() {
-        this.toggle.emit(this.isStarted);
-        this.isStarted = !this.isStarted;
+        this.toggle.emit(null);
     }
 }

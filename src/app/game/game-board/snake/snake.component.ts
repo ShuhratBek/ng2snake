@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
 
 @Component({
     selector: 'snake',
-    template: `<md-icon svgIcon="{{part}}" [class.rotate90]="{{}}"></md-icon>`,
+    template: `<md-icon svgIcon="stop"></md-icon>`,
+    styles: [':host{ color: #CDDC39; }'],
     directives: [MD_ICON_DIRECTIVES]
 })
-export class Snake {
-    @Input() part: string;
+export class SnakeComponent {
+
 }

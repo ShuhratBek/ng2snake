@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { Game }  from './game/';
-import { tpl } from './app.tpl';
+import { GameComponent }  from './game/';
 
 @Component({
     selector: 'app',
-    template: tpl,
+    template: '<game></game>',
     directives: [
-        Game
+        GameComponent
     ]
 })
 export class App {

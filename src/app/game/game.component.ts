@@ -2,33 +2,33 @@ import * as _ from 'lodash/index';
 import { Component } from '@angular/core';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { MD_ICON_DIRECTIVES, MdIconRegistry } from '@angular2-material/icon';
-import { BOARD_SIZE, DIRECTIONS } from './game.constant';
-import { Part, Fruit, ISnake } from './game';
-import { GameBoard }  from './game-board/game-board.component';
-import { ToolBar }  from './tool-bar/tool-bar.component';
-import { tpl } from './game.tpl';
+import { Part, Fruit, Snake, BOARD_SIZE, DIRECTIONS } from './shared/';
+import { GameBoardComponent }  from './game-board/';
+import { ToolBarComponent }  from './tool-bar/';
+import { GAME_TPL } from './game.tpl';
 
 @Component({
     selector: 'game',
-    template: tpl,
+    template: GAME_TPL,
+    styles: ['.score{background-color: #90A4AE; padding: 10px 20px; border-radius: 20px; text-transform: uppercase;}'],
     directives: [
         MD_BUTTON_DIRECTIVES,
         MD_ICON_DIRECTIVES,
-        GameBoard,
-        ToolBar
+        GameBoardComponent,
+        ToolBarComponent
     ],
     providers: [ MdIconRegistry ]
 })
-export class Game {
-    public score: number;
-    public board: boolean[][];
-    public snake: ISnake;
-    public fruit: Fruit;
-    interval: number;
-    tempDirection: number;
+export class GameComponent {
+    board: boolean[][];
+    snake: Snake;
+    fruit: Fruit;
     isGameOver: boolean;
     isStarted: boolean;
     fruitType: Array<string>;
+    private interval: number;
+    private tempDirection: number;
+    private score: number;
 
     constructor(mdIconRegistry: MdIconRegistry) {
         this.fruitType = [
@@ -53,9 +53,8 @@ export class Game {
             mdIconRegistry.addSvgIcon(value, './icons/' + value + '.svg');
         });
 
-        mdIconRegistry.addSvgIcon('snake-head', './icons/snake-head.svg');
-        mdIconRegistry.addSvgIcon('snake-body', './icons/snake-body.svg');
-        mdIconRegistry.addSvgIcon('snake-tail', './icons/snake-tail.svg');
+        mdIconRegistry.addSvgIcon('play', './icons/play.svg');
+        mdIconRegistry.addSvgIcon('stop', './icons/stop.svg');
 
         this.score = 0;
         this.setupBoard();
@@ -74,7 +73,7 @@ export class Game {
     }
 
     update() {
-        let self: Game = this;
+        let self: GameComponent = this;
         if (this.isStarted) {
             setTimeout(() => {
                 let newHead: Part = self.getNewHead();
@@ -160,12 +159,13 @@ export class Game {
     }
 
     gameOver() {
-        this.isStarted = false;
         this.isGameOver = true;
 
         setTimeout(() => {
             this.isGameOver = false;
         }, 500);
+
+        this.isStarted = false;
 
         this.setupBoard();
     }
@@ -209,8 +209,7 @@ export class Game {
         this.update();
     }
 
-    toggle(arg: any) {
-        console.log(arg);
+    toggle() {
         if (this.isStarted) {
             this.gameOver();
         } else {
