@@ -1,18 +1,17 @@
-import { Component, Input } from '@angular/core';
-import { Part, Snake, COLORS } from '../shared/';
+import { Component } from '@angular/core';
 import { FruitComponent } from './fruit/';
 import { SnakeComponent } from './snake/';
+import { GameService } from '../shared/';
 
 @Component({
     selector: 'game-board',
     template: `
-        <div class="row" *ngFor="let col of board; let c=index">
+        <div class="row" *ngFor="let column of board; let y=index">
 			<div class="column"
-			     *ngFor="let row of col; let r=index; trackBy:r"
-			     [style.background-color]="setStyling(c, r)"
-			>
-				<fruit *ngIf="setFruit(c, r)" [type]="fruit.type"></fruit>
-				<snake *ngIf="setSnake(c, r)"></snake>
+			     *ngFor="let row of column; let x=index; trackBy:x"
+			     [style.background-color]="setStyling()">
+				<fruit *ngIf="setFruit(y, x)"></fruit>
+				<snake *ngIf="setSnake(y, x)"></snake>
 			</div>
 		</div>`,
     styles: [
@@ -25,30 +24,21 @@ import { SnakeComponent } from './snake/';
     ]
 })
 export class GameBoardComponent {
-    @Input() board: boolean[][];
-    @Input() fruit: Part;
-    @Input() snake: Snake;
-    @Input() isGameOver: boolean;
+    board: boolean[][];
 
-    setStyling(col: number, row: number) {
-        if (this.isGameOver) {
-            return COLORS.GAME_OVER;
-        }
-        // } else if (this.fruit.x === row && this.fruit.y === col) {
-        //     return COLORS.FRUIT;
-        // } else if (this.snake.parts.length > 0 && this.snake.parts[0].x === row && this.snake.parts[0].y === col) {
-        //     return COLORS.SNAKE_HEAD;
-        // } else if (this.board[col][row] === true) {
-        //     return COLORS.SNAKE_BODY;
-        // }
-        return COLORS.BOARD;
+    constructor(private gameService: GameService) {
+        this.board = this.gameService.board;
+    }
+
+    setStyling() {
+        return this.gameService.getStyling();
     }
 
     setFruit(col: number, row: number) {
-        return (this.fruit.x === row && this.fruit.y === col);
+        return this.gameService.getFruit(col, row);
     }
 
     setSnake(col: number, row: number) {
-        return ((this.snake.parts.length > 0 && this.snake.parts[0].x === row && this.snake.parts[0].y === col) || this.board[col][row]);
+        return this.gameService.getSnake(col, row);
     }
 }

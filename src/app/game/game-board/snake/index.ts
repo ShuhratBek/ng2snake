@@ -1,1 +1,1 @@
-export { SnakeComponent } from './snake.component';
+export * from './snake.component';

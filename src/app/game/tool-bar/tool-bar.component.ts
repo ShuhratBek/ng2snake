@@ -1,8 +1,9 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { TOOLBAR_TPL } from './tool-bar.tpl.ts';
 import { MD_TOOLBAR_DIRECTIVES } from '@angular2-material/toolbar';
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
+import { GameService } from '../shared/';
 
 @Component({
     selector: 'tool-bar',
@@ -18,9 +19,13 @@ import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
     ]
 })
 export class ToolBarComponent {
-    @Output() toggle: EventEmitter<any> = new EventEmitter();
+    constructor(private gameService: GameService) {}
 
-    fireToggle() {
-        this.toggle.emit(null);
+    toggle() {
+        this.gameService.toggle();
+    }
+
+    isStarted() {
+        return this.gameService.isStarted;
     }
 }

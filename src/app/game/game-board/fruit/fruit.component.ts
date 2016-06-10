@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
+import { GameService } from '../../shared';
 
 @Component({
     selector: 'fruit',
@@ -7,5 +8,9 @@ import { MD_ICON_DIRECTIVES } from '@angular2-material/icon';
     directives: [MD_ICON_DIRECTIVES]
 })
 export class FruitComponent {
-    @Input() type: string;
+    type: string;
+
+    constructor(private gameService: GameService) {
+        this.type = this.gameService.fruit.type;
+    }
 }
