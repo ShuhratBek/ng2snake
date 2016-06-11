@@ -1,6 +1,6 @@
 import * as _ from 'lodash/index';
 import { Injectable } from '@angular/core';
-import { Part, Fruit, Snake, BOARD_SIZE, COLORS, KEYS } from './';
+import { Part, Fruit, Snake, BOARD_SIZE, COLORS, KEYS } from './index';
 
 @Injectable()
 export class GameService {

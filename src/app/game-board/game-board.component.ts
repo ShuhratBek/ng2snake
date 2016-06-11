@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { FruitComponent } from './fruit/';
-import { SnakeComponent } from './snake/';
-import { GameService } from '../shared/';
+import { MyFruitComponent } from './my-fruit/index';
+import { MySnakeComponent } from './my-snake/index';
+import { GameService } from '../shared/index';
 
 @Component({
     selector: 'game-board',
@@ -10,17 +10,21 @@ import { GameService } from '../shared/';
 			<div class="column"
 			     *ngFor="let row of column; let x=index; trackBy:x"
 			     [style.background-color]="setStyling()">
-				<fruit *ngIf="setFruit(y, x)"></fruit>
-				<snake *ngIf="setSnake(y, x)"></snake>
+				<my-fruit *ngIf="setFruit(y, x)"></my-fruit>
+				<my-snake *ngIf="setSnake(y, x)"></my-snake>
 			</div>
 		</div>`,
     styles: [
-        '.row { height: 26px;}',
-        '.column { border: 1px dotted #455A64; width: 24px; height: 24px; display: inline-block;}'
+        ':host {margin: 10px; ' +
+        'box-shadow: 0 4px 5px -2px rgba(0,0,0,.2),0 7px 10px 1px rgba(0,0,0,.14),0 2px 16px 1px rgba(0,0,0,.12);' +
+        'display: block;}',
+        '.row {height: 28px;}',
+        '.column {border: 1px dotted #455A64; width: 28px; height: 28px; display: inline-block; vertical-align: middle;' +
+        'text-align: center;}'
     ],
     directives: [
-        FruitComponent,
-        SnakeComponent
+        MyFruitComponent,
+        MySnakeComponent
     ]
 })
 export class GameBoardComponent {

@@ -24,16 +24,12 @@ Clone this repo and execute in your favourite shell:
 * `npm run build` to build an optimized version of your application in /dist
 * `npm run serve` to launch a browser sync server on your source files
 * `npm run serve:dist` to launch a server on your optimized application
-* `npm run test` to launch your unit tests with Karma
-* `npm run test:auto` to launch your unit tests with Karma in watch mode
 
 ### Gulp tasks
 If you have gulp-cli installed in global packages you can use equivalent:
 * `gulp` or `gulp build` to build an optimized version of your application in /dist
 * `gulp serve` to launch a browser sync server on your source files
 * `gulp serve:dist` to launch a server on your optimized application
-* `gulp test` to launch your unit tests with Karma
-* `gulp test:auto` to launch your unit tests with Karma in watch mode
 
 ## Used
 [![Fountain Webapp Generator](http://fountainjs.io/assets/imgs/fountain.png)](http://fountainjs.io/)

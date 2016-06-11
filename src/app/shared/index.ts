@@ -1,3 +1,3 @@
 export * from './data.model';
 export * from './data.service';
-export * from './game.service';
+export * from './my-game.service';
