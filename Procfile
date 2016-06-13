@@ -1,3 +1,1 @@
-web: node npm i
-typings i
-gulp serve:dist
+web: node npm i typings i gulp serve:dist
