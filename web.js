@@ -1,7 +1,10 @@
-var gzippo = require('gzippo');
 var express = require('express');
 var app = express();
+var port = process.env.PORT || 8080;
 
-app.use(express.logger('dev'));
-app.use(gzippo.staticGzip("" + __dirname + "/dist"));
-app.listen(process.env.PORT || 5000);
+// Serve static files
+app.use(express.static(__dirname + '/public'));
+
+// Serve your app
+console.log('Served: http://localhost:' + port);
+app.listen(port);

@@ -1,4 +1,8 @@
 {
+  "name": "ng2snake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "web.js",
   "dependencies": {
     "@angular/common": "2.0.0-rc.1",
     "@angular/compiler": "2.0.0-rc.1",
@@ -56,11 +60,13 @@
     "webpack": "2.1.0-beta.7"
   },
   "scripts": {
+    "start": "gulp serve:dist",
     "build": "gulp",
     "serve": "gulp serve",
     "serve:dist": "gulp serve:dist",
     "test": "gulp test",
-    "test:auto": "gulp test:auto"
+    "test:auto": "gulp test:auto",
+    "postinstall": "npm install typescript"
   },
   "eslintConfig": {
     "root": true,
