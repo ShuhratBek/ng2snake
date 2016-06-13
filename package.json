@@ -17,9 +17,7 @@
     "es6-promise": "^3.0.2",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.8",
-    "zone.js": "^0.6.12"
-  },
-  "devDependencies": {
+    "zone.js": "^0.6.12",
     "autoprefixer": "^6.2.2",
     "babel-eslint": "^6.0.2",
     "babel-loader": "^6.2.0",
