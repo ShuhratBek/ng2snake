@@ -66,7 +66,7 @@
     "serve:dist": "gulp serve:dist",
     "test": "gulp test",
     "test:auto": "gulp test:auto",
-    "postinstall": "npm install typescript"
+    "postinstall": "npm install -g typescript"
   },
   "eslintConfig": {
     "root": true,
