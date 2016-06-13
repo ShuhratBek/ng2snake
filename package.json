@@ -14,6 +14,8 @@
     "@angular2-material/core": "^2.0.0-alpha.5-2",
     "@angular2-material/icon": "^2.0.0-alpha.5-2",
     "@angular2-material/toolbar": "^2.0.0-alpha.5-2",
+  },
+  "devDependencies": {
     "es6-promise": "^3.0.2",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.8",
@@ -64,7 +66,8 @@
     "serve:dist": "gulp serve:dist",
     "test": "gulp test",
     "test:auto": "gulp test:auto",
-    "postinstall": "npm i -g typescript && npm i express && typings i && gulp"
+    "preinstall": "npm i typescript && npm i express && typings i",
+    "postinstall": "gulp"
   },
   "eslintConfig": {
     "root": true,
