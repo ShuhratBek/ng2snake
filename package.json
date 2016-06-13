@@ -66,8 +66,7 @@
     "serve:dist": "gulp serve:dist",
     "test": "gulp test",
     "test:auto": "gulp test:auto",
-    "preinstall": "npm i typescript && npm i express && typings i",
-    "postinstall": "gulp"
+    "postinstall": "npm i typescript && npm i express && typings i && gulp"
   },
   "eslintConfig": {
     "root": true,
@@ -78,5 +77,9 @@
     "extends": [
       "xo-space/esnext"
     ]
+  },
+  "engines": {
+    "node": "4.4.x",
+    "npm": "3.9.x"
   }
 }
