@@ -1,7 +1,7 @@
 # ng2snake
 Snake clone build on Angular2
 
-Check it out right now at [https://ng2snake.herokuapp.com/](https://ng2snake.herokuapp.com/).
+Check it out right now [Demo](https://ng2snake.herokuapp.com/).
 
 ## KEYS
 * `UP`, `DOWN`, `LEFT`, `RIGHT` - to control snake
