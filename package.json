@@ -58,13 +58,13 @@
     "webpack": "2.1.0-beta.7"
   },
   "scripts": {
-    "start": "node dist",
+    "start": "node web.js",
     "build": "gulp",
     "serve": "gulp serve",
     "serve:dist": "gulp serve:dist",
     "test": "gulp test",
     "test:auto": "gulp test:auto",
-    "postinstall": "npm install -g typescript && typings i && gulp serve:dist"
+    "postinstall": "npm i -g typescript && npm i express && typings i && gulp"
   },
   "eslintConfig": {
     "root": true,
