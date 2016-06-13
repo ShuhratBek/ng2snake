@@ -60,13 +60,13 @@
     "webpack": "2.1.0-beta.7"
   },
   "scripts": {
-    "start": "gulp serve:dist",
+    "start": "node dist",
     "build": "gulp",
     "serve": "gulp serve",
     "serve:dist": "gulp serve:dist",
     "test": "gulp test",
     "test:auto": "gulp test:auto",
-    "postinstall": "npm install -g typescript"
+    "postinstall": "npm install -g typescript && gulp serve:dist"
   },
   "eslintConfig": {
     "root": true,
