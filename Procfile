@@ -1,1 +1,3 @@
-web: node node_modules/gulp/bin/gulp serve:dist
+web: node npm i
+typings i
+gulp serve:dist
