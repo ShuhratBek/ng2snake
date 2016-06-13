@@ -1,1 +1,1 @@
-web: node run serve:dist
+web: node web.js
