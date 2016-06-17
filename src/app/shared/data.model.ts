@@ -3,7 +3,7 @@ export interface Part {
     y: number;
 }
 
-export interface Fruit extends Part{
+export interface Fruit extends Part {
     type: string;
 }
 

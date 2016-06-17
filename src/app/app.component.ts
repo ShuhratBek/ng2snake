@@ -1,28 +1,30 @@
 import * as _ from 'lodash/index';
 import { Component } from '@angular/core';
-import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
-import { MD_ICON_DIRECTIVES, MdIconRegistry } from '@angular2-material/icon';
+import { MdIconRegistry } from '@angular2-material/icon';
 import { GameService } from './shared/index';
 import { GameBoardComponent }  from './game-board/index';
 import { ToolBarComponent }  from './tool-bar/index';
-import { GAME_TPL } from './my-game.tpl';
+import { FooterComponent }  from './footer/index';
 
 @Component({
-    selector: 'my-game',
-    template: GAME_TPL,
-    styles: ['.copyright {color: #607D8B}'],
+    selector: 'app',
+    template: `
+        <tool-bar></tool-bar>
+        <md-content class="container">
+            <game-board></game-board>
+        </md-content>
+        <footer></footer>`,
     directives: [
-        MD_BUTTON_DIRECTIVES,
-        MD_ICON_DIRECTIVES,
         GameBoardComponent,
-        ToolBarComponent
+        ToolBarComponent,
+        FooterComponent
     ],
     providers: [
         MdIconRegistry,
         GameService
     ]
 })
-export class MyGameComponent {
+export class AppComponent {
     constructor(mdIconRegistry: MdIconRegistry, private gameService: GameService) {
         _(this.gameService.fruitType).each((value: string) => {
             mdIconRegistry.addSvgIcon(value, './icons/' + value + '.svg');

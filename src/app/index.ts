@@ -1,2 +1,2 @@
-export * from './my-game.component';
+export * from './app.component';
 export * from './shared/index';
