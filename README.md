@@ -1,42 +1,30 @@
-# ng2snake
-Snake clone build on Angular2
+## ng-2-snake
+> This project is generated with [generator-angular2-typescript](https://github.com/shibbir/generator-angular2-typescript) version 0.10.6.
 
-Check it out right now [Demo](https://ng2snake.herokuapp.com/).
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-## KEYS
-* `UP`, `DOWN`, `LEFT`, `RIGHT` - to control snake
-* `SPACEBAR`, `ENTER` - to toggle play/stop game
-* `ESC` - to stop game
+## Installation
 
-## Requirements
-You need at least
-* Node 4+
-* NPM 3+
+```bash
+$ npm install -g typescript
+$ npm start
+```
 
-## Play
-Clone this repo and execute in your favourite shell:
+## Production Build
+```bash
+$ npm run build
+```
 
-* `npm i -g gulp` to install gulp globally (if you don't have it installed already)
-* `npm i` to install local npm dependencies
-* `typings i` to install local typings dependencies
-* `npm run serve` or `gulp serve` to launch
+## Running Unit Tests
+```bash
+$ npm test
+```
 
-## Tasks
-### NPM scripts
-* `npm run build` to build an optimized version of your application in /dist
-* `npm run serve` to launch a browser sync server on your source files
-* `npm run serve:dist` to launch a server on your optimized application
+## Running End-to-End Tests
+```bash
+# make sure you have a running app
+$ npm run e2e
+```
 
-### Gulp tasks
-If you have gulp-cli installed in global packages you can use equivalent:
-* `gulp` or `gulp build` to build an optimized version of your application in /dist
-* `gulp serve` to launch a browser sync server on your source files
-* `gulp serve:dist` to launch a server on your optimized application
-
-## Used
-[![Fountain Webapp Generator](http://fountainjs.io/assets/imgs/fountain.png)](http://fountainjs.io/)
-[![Angular 2](http://fountainjs.io/assets/imgs/angular2.png)](https://github.com/FountainJS/generator-fountain-angular2)
-[![Gulp](http://fountainjs.io/assets/imgs/gulp.png)](https://github.com/FountainJS/generator-fountain-gulp)
-[![BrowserSync](http://fountainjs.io/assets/imgs/browsersync.png)](https://github.com/FountainJS/generator-fountain-browsersync)
-[![Karma](http://fountainjs.io/assets/imgs/karma.png)](https://github.com/FountainJS/generator-fountain-karma)
-[![Webpack](http://fountainjs.io/assets/imgs/webpack.png)](https://github.com/FountainJS/generator-fountain-webpack)
+## License
+<a href="https://opensource.org/licenses/MIT">MIT License</a>

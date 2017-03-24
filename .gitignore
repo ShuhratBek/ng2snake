@@ -1,6 +1,26 @@
-.tmp/
-coverage/
-dist/
-node_modules/
-typings/
-.idea/
+# OS
+# ===========
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Node and related ecosystem
+# ==========================
+.nodemonignore
+node_modules
+.bower-*/
+bower_components
+coverage
+
+# General
+# =======
+*.log
+dist
+typings
+target
+
+# Editors
+# =======
+.idea
+.vscode
